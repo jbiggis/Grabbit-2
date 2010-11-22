@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  price: 9.99
+  value: 9.99
+  description: MyString
+  fine_print: MyString
+  expiration_date: 2010-11-22 14:11:58
+  start_time: 2010-11-22 14:11:58
+  end_time: 2010-11-22 14:11:58
+
+two:
+  title: MyString
+  price: 9.99
+  value: 9.99
+  description: MyString
+  fine_print: MyString
+  expiration_date: 2010-11-22 14:11:58
+  start_time: 2010-11-22 14:11:58
+  end_time: 2010-11-22 14:11:58
