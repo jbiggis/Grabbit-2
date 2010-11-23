@@ -1,31 +1,56 @@
 <h1>Listing coupons</h1>
 
+
+<%= link_to "Today's Deal", deal_path(1) %>
+
 <table>
-  <tr>
-    <th>Coupon number</th>
+	<tr>
+		    <th>Deal</th>
+    <th>Coupon Number</th>
     <th>Order</th>
-    <th>Purchase date</th>
-    <th>Status</th>
-    <th></th>
+    <th>Purchase Date</th>
+        <th>Expiration Date</th>
+               <% if can? :update,@coupon  %>
+	<th>Status</th>
+<% end %>    
+	<th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @coupons.each do |coupon| %>
-  <tr>
+
+
+  <% @coupons.each do |coupon| %>
+	  <% if current_user.role == 'admin' || coupon.order.user_id == current_user.id %>
+	  
+ <tr>
+	 <td><%=link_to coupon.order.deal.title, coupon.order.deal %></td>
     <td><%= coupon.coupon_number %></td>
     <td><%= coupon.order_id %></td>
     <td><%= coupon.purchase_date %></td>
+        <td><%= coupon.order.deal.expiration_date %></td>
+           <% if can? :update, coupon  %>
     <td><%= coupon.status %></td>
+<% end %>
+        <% if can? :update, coupon  %>
     <td><%= link_to 'Show', coupon %></td>
+
+
     <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
-    <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
+       <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
+     <% end %>   
+
   </tr>
+
+  <% end %>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Coupon', new_coupon_path %>
+        <% if can? :update, @coupons  %>
+		<%= link_to 'New Coupon', new_coupon_path %>
+	<% end %>
+<%  if current_user %>
 <%= link_to 'Profile', edit_profile_path(current_user) %>
+<% end %>
 <%= link_to 'Coupons', coupons_path %>

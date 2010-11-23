@@ -10,7 +10,7 @@ Grabbit2::Application.routes.draw do
 devise_for :users
 
 
-  root :to => 'deals#index'
+  root :to => 'deals#show', :id => 1
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

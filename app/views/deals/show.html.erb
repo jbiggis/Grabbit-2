@@ -2,7 +2,6 @@
 
 
 
-<%= link_to 'My Account', coupons_path %>
 
 
 <p>
@@ -46,8 +45,11 @@
 </p>
 
 
-<%= link_to 'Edit', edit_deal_path(@deal) %> |
-<%= link_to 'Back', deals_path %>
+    <% if can? :update, @deal  %>
+	    <%= link_to 'Edit', edit_deal_path(@deal) %> |
+
+	    <%= link_to 'Back', deals_path %>
+	        <% end %>
 
 
 

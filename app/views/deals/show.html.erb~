@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<%= link_to 'Profile', edit_profile_path(current_user) %>
-<%= link_to 'Coupons', coupons_path %>
+
 
 
 <p>
@@ -46,7 +45,9 @@
 </p>
 
 
-<%= link_to 'Edit', edit_deal_path(@deal) %> |
+    <% if can? :update, @deal  %>
+	    <%= link_to 'Edit', edit_deal_path(@deal) %> |
+    <% end %>
 <%= link_to 'Back', deals_path %>
 
 

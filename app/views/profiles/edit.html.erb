@@ -4,8 +4,12 @@
 
 <%= render 'form' %>
 
+    <% if can? :update, @profile  %>
+
 <%= link_to 'Show', @profile %> |
 <%= link_to 'Back', profiles_path %>
-
+<% end %>
+           
 <%= link_to 'Profile', edit_profile_path(current_user) %>
 <%= link_to 'Coupons', coupons_path %>
+

@@ -1,9 +1,14 @@
 <h1>Editing profile</h1>
 
+<%= link_to "Today's Deal", deal_path(1) %>
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @profile %> |
 <%= link_to 'Back', profiles_path %>
 
+               <% if can? :update, @profile  %>
+
 <%= link_to 'Profile', edit_profile_path(current_user) %>
 <%= link_to 'Coupons', coupons_path %>
+<% end %>

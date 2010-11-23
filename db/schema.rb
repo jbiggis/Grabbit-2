@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101122201927) do
+ActiveRecord::Schema.define(:version => 20101122221745) do
 
   create_table "coupons", :force => true do |t|
     t.integer  "coupon_number"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20101122201927) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
